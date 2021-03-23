@@ -1,0 +1,16 @@
+Start npm:
+    npm init 
+Install package:
+    npm install bcryptjs
+    npm install body-parser,
+    npm install connect-flash
+    npm install dotenv
+    npm install express
+    npm install express-handlebars
+    npm install express-session
+    npm install mongoose
+    npm install multer
+    npm install nodemon
+    npm install passport
+    npm install passport-local
+
