@@ -131,21 +131,21 @@ router.get("/postagens/add", eAdmin, (req, res) =>{
     
 })
 
-const multer = require("multer")
-const upload = multer({ dest: "uploads/images/"})
+const path = require('path')
+const multer = require("multer");
 
-// app.get("/up", eAdmin, (req, res) => {
-//   res.render('upload')
-// })
-
-// app.post("/upload", eAdmin, upload.single("file"), (req, res) => {
-//   console.log(req.file)
-//   res.send("req.file existe")
-// })
+// dest: 'uploads/images'
+const upload = multer({ 
+    storage: multer.diskStorage({
+        destination: 'uploads/images',
+        filename(req, file, cb){
+            const fileName = `${new Date().toISOString().replace(/:/g, '-')}-${file.originalname}`
+            return cb(null, fileName)
+        }
+    })
+ })
 
 router.post("/postagens/nova", eAdmin, upload.single("avatar"), (req,res) =>{
-
-    console.log(req.file)
 
     var erros = []
 
@@ -160,6 +160,7 @@ router.post("/postagens/nova", eAdmin, upload.single("avatar"), (req,res) =>{
             titulo: req.body.titulo,
             descricao: req.body.descricao,
             categoria: req.body.categoria,
+            image: req.file.path
         }
 
         new Postagem(novapostagem).save().then(()=>{
