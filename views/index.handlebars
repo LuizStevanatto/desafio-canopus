@@ -1,3 +1,75 @@
+
+{{#each postagens}}
+  <div class="card mt-4" style="width: 18rem; margin-left: 30%">
+    <img class="card-img-top" src="http://localhost:3000/{{image}}" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{titulo}}</h5>
+      <p class="card-text">{{descricao}}</p> <hr>
+      <p class="card-text"> Categoria: {{categoria.nome}} </p>
+    </div>
+  </div>
+{{else}}
+    <h5>Nenhuma Postagem</h5>
+{{/each}}
+
+
+{{!-- 
+{{#each postagens}}
+<div class="card mt-4">
+    <div class="card-body">
+        <small> </small>
+        <img class="card-img-top" src="http://localhost:3000/{{image}}" alt="Imagem">
+        <h3>{{titulo}}</h3>
+        <p>{{descricao}}</p>
+        <a href="/postagem/{{slug}}"><button class="btn btn-success">Leia mais</button></a>
+        <hr>
+        <small>Categoria: {{categoria.nome}}</small> <br>
+        <small>Data de publicação: {{data}} </small>
+    </div>
+</div>
+{{else}}
+    <h5>Nenhuma Postagem</h5>
+{{/each}} --}}
+
+
+
+
+{{!-- 
+      {{#each postagens}}
+      <div class="carousel-item active">
+
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card mb-2">
+              <img class="card-img-top" src="http://localhost:3000/{{image}}"
+                   alt="Card image cap">
+              <div class="card-body">
+                <h4 class="card-title">{{titulo}}</h4>
+                <p class="card-text">{{descricao}}</p>
+                <a class="btn btn-primary">Button</a>
+              </div>
+            </div>
+          </div>
+          {{else}}
+            <h5>Nenhuma Postagem</h5>
+          {{/each}}
+
+    
+
+      </div>
+
+
+
+ --}}
+
+
+
+
+
+
+
+
+{{!-- 
 <h2>Postagens recentes:</h2>
 
 {{#each postagens}}
@@ -14,4 +86,4 @@
 </div>
 {{else}}
     <h5>Nenhuma Postagem</h5>
-{{/each}}
+{{/each}} --}}
