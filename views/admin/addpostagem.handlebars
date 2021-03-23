@@ -8,7 +8,7 @@
 <div class="card">
     <div class="card-body">
         <h4>Nova Postagem</h4>
-        <form action="/admin/postagens/nova" method="post"> 
+        <form action="/admin/postagens/nova" method="post" enctype="multipart/form-data"> 
             <label for="titulo"> Título: </label>
             <input type="text" name="titulo" class="form-control" required>
             
@@ -18,13 +18,11 @@
             <label for="descricao"> Descrição: </label>
             <input type="text" name="descricao" class="form-control" required><hr>
 
-            <label for="descricao"> Descrição: </label>
-            <input type="text" name="descricao" class="form-control" required><hr>
 
-            <form method="post" action="/avatar" enctype="multipart/form-data">
-                <input type="file" name="avatar" accept="image/*"> <br>
-                <button type="submit" class="mt-2">Upload</button>
-            </form> <hr>
+            
+            <input type="file" name="avatar" > <br>
+            
+           <hr>
 
 
             <label for="categoria">Categoria</label>
@@ -36,12 +34,12 @@
                     {{/each}}
 
                     
-                </select> <br>
+                </select> <br> <br>
 
 
 
-            <button type="submit" class="btn btn-success mt-4">Criar Postagem</button>
-
+            {{!-- <button type="submit" class="btn btn-success mt-4">Criar Postagem</button> --}}
+            <input type="submit" value="Criar Postagem">
 
         </form>
     </div>

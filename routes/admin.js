@@ -6,7 +6,7 @@ const Categoria = mongoose.model('categorias')
 require("../models/Postagem")
 const Postagem = mongoose.model("postagens")
 const {eAdmin} = require("../helpers/eAdmin")
-const multer = require('multer')
+
 
 
 router.get('/', eAdmin, (req, res) =>{
@@ -131,7 +131,21 @@ router.get("/postagens/add", eAdmin, (req, res) =>{
     
 })
 
-router.post("/postagens/nova", eAdmin, (req,res) =>{
+const multer = require("multer")
+const upload = multer({ dest: "uploads/images/"})
+
+// app.get("/up", eAdmin, (req, res) => {
+//   res.render('upload')
+// })
+
+// app.post("/upload", eAdmin, upload.single("file"), (req, res) => {
+//   console.log(req.file)
+//   res.send("req.file existe")
+// })
+
+router.post("/postagens/nova", eAdmin, upload.single("avatar"), (req,res) =>{
+
+    console.log(req.file)
 
     var erros = []
 
@@ -153,11 +167,16 @@ router.post("/postagens/nova", eAdmin, (req,res) =>{
             res.redirect("/admin/postagens")
         }).catch((err) =>{
             req.flash("error_msg", "Erro ao salvar postagem")
+            console.log(err)
             res.redirect("/admin/postagens")    
         })
     }
 
 })
+
+// router.post("/postagens/files", (req, res) => {
+
+// })
 
 router.get("/postagens/edit/:id", eAdmin, (req, res) =>{
 

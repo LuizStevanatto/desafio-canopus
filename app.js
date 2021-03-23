@@ -16,6 +16,7 @@ const usuarios = require("./routes/usuario");
 const passport = require("passport");
 require("./config/auth")(passport)
 require("./config/db")
+const {eAdmin} = require("./helpers/eAdmin")
 
 
 // Configuração
@@ -60,6 +61,7 @@ app.set("view engine", "handlebars");
 
 // Public
 app.use(express.static(path.join(__dirname, "public")));
+
 
 
 // Rotas

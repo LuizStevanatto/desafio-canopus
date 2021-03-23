@@ -19,11 +19,6 @@ const Postagem = new Schema({
         type: Date,
         default: Date.now()
     },
-    image: {
-        type: String,
-        required: true
-    }
-
 })
 
 mongoose.model("postagens", Postagem)
